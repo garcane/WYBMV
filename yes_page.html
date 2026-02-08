@@ -7,11 +7,65 @@
     <link rel="stylesheet" href="./yes_style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container initial-view" id="gifContainer">
         <h1 class="header_text">Knew you would say yes!</h1>
         <div class="gif_container">
             <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif">
         </div>
     </div>
+
+    <div class="container itinerary-view" id="itineraryContainer">
+        <h1 class="header_text">Our Valentine's Day 💕</h1>
+        <div class="itinerary">
+            <div class="date-header">
+                <p class="main-date">14 February 2026</p>
+            </div>
+            
+            <div class="event">
+                <div class="time">18:00 – 19:00</div>
+                <div class="event-details">
+                    <h2>Dinner Reservation</h2>
+                    <p class="venue">27 Old Compton Street</p>
+                    <p class="address">27 Old Compton St, London, W1D 5JP</p>
+                </div>
+            </div>
+
+            <div class="event">
+                <div class="time">19:30 – 21:30</div>
+                <div class="event-details">
+                    <h2>Evening Booking</h2>
+                    <p class="venue">Downstairs At 180</p>
+                    <p class="address">180 St John Street, London, EC1V 4JY</p>
+                </div>
+            </div>
+
+            <div class="event overnight">
+                <div class="time">Overnight</div>
+                <div class="event-details">
+                    <h2>Hotel Stay</h2>
+                    <p class="venue">Leonardo Royal London Tower Bridge</p>
+                    <p class="address">45 Prescot St, London E1 8GP</p>
+                    <p class="dates">14 – 15 February 2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Transition from GIF to itinerary after 5 seconds
+        setTimeout(function() {
+            const gifContainer = document.getElementById('gifContainer');
+            const itineraryContainer = document.getElementById('itineraryContainer');
+            
+            // Fade out the GIF
+            gifContainer.classList.add('fade-out');
+            
+            // Wait for fade out, then show itinerary
+            setTimeout(function() {
+                gifContainer.style.display = 'none';
+                itineraryContainer.classList.add('show');
+            }, 800); // Match the CSS transition duration
+        }, 5000);
+    </script>
 </body>
 </html>

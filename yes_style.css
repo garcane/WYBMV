@@ -2,23 +2,157 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-color: #f9e3e3;
     font-family: 'Arial', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .container {
     text-align: center;
+    width: 100%;
+    max-width: 600px;
 }
 
 .header_text {
-    font-size: 3em;
+    font-size: clamp(2em, 5vw, 3em);
     color: #d32f2f;
+    margin-bottom: 30px;
 }
 
 .gif_container img {
     width: 100%; 
     max-width: 500px; 
     height: auto; 
+}
+
+/* Initial view (GIF) */
+.initial-view {
+    opacity: 1;
+    transition: opacity 0.8s ease-out;
+}
+
+.initial-view.fade-out {
+    opacity: 0;
+}
+
+/* Itinerary view */
+.itinerary-view {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    display: none;
+}
+
+.itinerary-view.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.itinerary {
+    text-align: left;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 500px;
+}
+
+.date-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-date {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #d32f2f;
+    margin: 0;
+}
+
+.event {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #d32f2f;
+}
+
+.event.overnight {
+    border-left-color: #ff6b9d;
+}
+
+.time {
+    font-size: 0.9em;
+    color: #d32f2f;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-details h2 {
+    color: #d32f2f;
+    font-size: 1.4em;
+    margin: 0 0 10px 0;
+}
+
+.venue {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.address {
+    font-size: 0.95em;
+    color: #666;
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.dates {
+    font-size: 0.95em;
+    color: #666;
+    margin: 5px 0;
+    font-style: italic;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+    
+    .header_text {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    
+    .itinerary {
+        padding: 10px;
+    }
+    
+    .event {
+        padding: 15px;
+    }
+    
+    .event-details h2 {
+        font-size: 1.2em;
+    }
+    
+    .venue {
+        font-size: 1em;
+    }
+    
+    .address, .dates {
+        font-size: 0.85em;
+    }
+}
+
+/* Ensure smooth scrolling on mobile */
+html {
+    -webkit-overflow-scrolling: touch;
 }
